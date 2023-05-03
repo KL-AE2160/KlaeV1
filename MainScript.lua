@@ -51,8 +51,12 @@ end
 shared.notify = rblxnotify
 shared.qot = queueonteleport
 local function check(id)
-  local suc, res = pcall(function() return game:HttpGet("https://raw.githubusercontent.com/KL-AE2160/KlaeV1/main/Modules/"..id..".lua") end)
+  local suc, res = pcall(function() 
+      return game:HttpGet("https://raw.githubusercontent.com/KL-AE2160/KlaeV1/main/Modules/"..id..".lua") 
+  end)
+  return suc and res ~= nil and res ~= "404: Not Found"
 end
 if check(game.PlaceID) then
   loadstring(game:HttpGet("https://raw.githubusercontent.com/KL-AE2160/KlaeV1/main/Modules/"..game.PlaceID..".lua"))()
 end
+queueonteleport("loadstring(game:HttpGet(\"https://raw.githubusercontent.com/KL-AE2160/KlaeV1/main/MainScript.lua\"))()")
