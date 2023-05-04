@@ -1,5 +1,5 @@
+local CurT = os.time()
 repeat wait() until game:IsLoaded()
-shared.KlaeInjected = true
 local isfile = isfile or function(ew) 
   local suc,res = pcall(function() 
     return readfile(ew)
@@ -59,4 +59,11 @@ end
 if check(game.PlaceID) then
   loadstring(game:HttpGet("https://raw.githubusercontent.com/KL-AE2160/KlaeV1/main/Modules/"..game.PlaceID..".lua"))()
 end
+-- shared.GuiLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/KL-AE2160/KlaeV1/main/GuiLib.lua"))
+shared.LoadedKa = true
+assert(not shared.LoadedKa, "KlaeV1 Already Injected")
+local NTime = os.date()
+local LTime = NTime - CurT
+if LTime < 0 then LTime = 0 end
+
 queueonteleport("loadstring(game:HttpGet(\"https://raw.githubusercontent.com/KL-AE2160/KlaeV1/main/MainScript.lua\"))()")
