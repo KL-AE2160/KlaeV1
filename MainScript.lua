@@ -20,7 +20,7 @@ local function rblxnotify(text, funclist)
 	local prompt = ErrorPrompt.new("Default")
 	prompt._hideErrorCode = true
 	local gui = Instance.new("ScreenGui", game:GetService("CoreGui"))
-	prompt:setErrorTitle("Vape")
+	prompt:setErrorTitle("KlaeV1")
 	local funcs
 	if funclist then 
 		funcs = {}
@@ -48,11 +48,10 @@ local function rblxnotify(text, funclist)
 	prompt:_open(text)
 	setidentity(oldidentity)
 end
-shared.notify = rblxnotify
+shared.xnotify = rblxnotify
 shared.qot = queueonteleport
 if not game.PlaceId then
   game.Players.LocalPlayer:Kick("[UnsupportedExecutor]: Sorry. We are not currently supporting this executor. PlaceId is missing.")
-  -- I guess it will work in krnl & synpase or  ill be very sad :< HOW THEY CANNOT DO THAT FOR FLUXUS OR CELERY TRASH@!!@@!@!@!
 end
 local function check(id)
   local suc, res = pcall(function() 
@@ -60,7 +59,7 @@ local function check(id)
   end)
   return suc and res ~= nil and res ~= "404: Not Found"
 end
-if check(game.PlaceID) then
+if check(game.PlaceId) then
   loadstring(game:HttpGet("https://raw.githubusercontent.com/KL-AE2160/KlaeV1/main/Modules/"..game.PlaceID..".lua"))()
 else 
   --NOnE 
