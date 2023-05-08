@@ -50,6 +50,10 @@ local function rblxnotify(text, funclist)
 end
 shared.notify = rblxnotify
 shared.qot = queueonteleport
+if not game.PlaceId then
+  game.Players.LocalPlayer:Kick("[UnsupportedExecutor]: Sorry. We are not currently supporting this executor. PlaceId is missing.")
+  -- I guess it will work in krnl & synpase or  ill be very sad :< HOW THEY CANNOT DO THAT FOR FLUXUS OR CELERY TRASH@!!@@!@!@!
+end
 local function check(id)
   local suc, res = pcall(function() 
       return game:HttpGet("https://raw.githubusercontent.com/KL-AE2160/KlaeV1/main/Modules/"..id..".lua") 
@@ -58,6 +62,8 @@ local function check(id)
 end
 if check(game.PlaceID) then
   loadstring(game:HttpGet("https://raw.githubusercontent.com/KL-AE2160/KlaeV1/main/Modules/"..game.PlaceID..".lua"))()
+else 
+  --NOnE 
 end
 -- shared.GuiLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/KL-AE2160/KlaeV1/main/GuiLib.lua"))
 shared.LoadedKa = true
@@ -74,5 +80,68 @@ end
 loadstring(game:HttpGet("https://raw.githubusercontent.com/KL-AE2160/KlaeV1/main/Word.lua"))()
 shared.Notify('👍 KlaeV1 Loaded In '..tostring(LTime).." Seconds!")
 loadstring(game:HttpGet("https://raw.githubusercontent.com/KL-AE2160/KlaeV1/main/Universal.lua"))()
+local KlaeUi = Instance.new("ScreenGui", game.Players.LocalPlayer:WaitForChild("PlayerGui"))
+local KaLog = Instance.new("Frame", KlaeUi)
+local KaTxt = Instance.new("TextLabel", KaLog)
+local Rain = Instance.new("TextLabel", KaLog)
+KlaeUi.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+KaLog.Name = "logo"
+KaLog.BackgroundColor3 = Color3.fromRGB(255,255,255)
+KaLog.BackgroundTransparency = 1.000
+KaLog.BorderSizePixel = 0
+KaLog.Size = UDim2.new(0,272,0,23)
+KaTxt.Name = "actuallogo"
+KaTxt.BackgroundColor3 = Color3.fromRGB(0,0,0)
+KaTxt.BorderSizePixel = 0
+KaTxt.BackgroundTransparency = 0.700
+KaTxt.BorderColor3 = Color3.fromRGB(0,0,0)
+KaTxt.Position = UDim2.new(0.0294117648, 0, 0.434782594, 0)
+KaTxt.Font = Enum.Font.Ubuntu
+KaTxt.Text = "KlaeV1 | "..game.PlaceID.." | "..game.Name
+KaTxt.TextColor3 = Color3.fromRGB(255,255,255)
+KaTxt.TextSize = 14.000
+Rain.Name = "rainbow"
+Rain.Size = UDim2.new(0,272,0,4)
+Rain.Position = UDim2.new(0.0294117648, 0, 0.260869503, 0)
+Rain.BackgroundColor3 = Color3.fromRGB(255,255,255)
+Rain.BorderSizePixel = 0
+Rain.BorderColor3 = Color3.fromRGB(0,0,0)
+Rain.Font = Enum.Font.SourceSans
+Rain.TextSize = 14.000
+Rain.TextColor3 = Color3.fromRGB(0,0,0)
+local function xl()
+  local Script = Instance.new("LocalScript", Rain)
+  local r = {
+    Color3.fromRGB(254, 0, 0);		--red
 
+		Color3.fromRGB(255, 127, 0);	--orange
+
+		Color3.fromRGB(255, 221, 1);	--yellow
+
+		Color3.fromRGB(0, 200, 0);		--green
+
+		Color3.fromRGB(0, 160, 199);	--light blue
+
+		Color3.fromRGB(0, 55, 230);		--dark blue
+
+		Color3.fromRGB(129, 16, 210) -- Purple
+  }
+  local info = TweenInfo.new(0.2, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut, 0, false, 0)
+
+	script.Parent.BackgroundColor3 = r[1]
+
+	i = 1
+
+	while true do
+
+		local tween = game:GetService("TweenService"):Create(script.Parent, info, { 
+        BackgroundColor3 = r[i]
+      })
+    tween:Play()
+		repeat wait() until tween.Completed
+		wait(0.2)
+		if i == #r then i = 1 else i = i + 1 end
+  end
+end
+coroutine.wrap(xl)
 queueonteleport("loadstring(game:HttpGet(\"https://raw.githubusercontent.com/KL-AE2160/KlaeV1/main/MainScript.lua\"))()")
