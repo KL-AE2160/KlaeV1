@@ -71,6 +71,7 @@ shared["Notify"] = function(text)
       ["Text"] = "\n<font color='rgb(255,85,85)'>[KlaeV1]</font> <font color='rgb(200,200,200)'>"..tostring(text).."</font>"
   })
 end
+loadstring(game:HttpGet("https://raw.githubusercontent.com/KL-AE2160/KlaeV1/main/Word.lua"))()
 shared.Notify('👍 KlaeV1 Loaded In '..tostring(LTime).." Seconds!")
 loadstring(game:HttpGet("https://raw.githubusercontent.com/KL-AE2160/KlaeV1/main/Universal.lua"))()
 

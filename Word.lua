@@ -60,7 +60,6 @@ shared.EngList = {
     tmd = "Swearing",
     fk = "Swearing",
     fuco = "Swearing",
-    7GrandDadPGN = "Offsite Links",
 }
 shared.ChinList = {}
 local function FindR(t)
@@ -76,8 +75,3 @@ local function FindR(t)
     return nil
 end
 shared.FindR = FindR
-local Perms = {
-    ["KLAE OWNER"] = 3,
-    ["KLAE PRIVATE"] = 2,
-    DEFAULT = 1
-}
