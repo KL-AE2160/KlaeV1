@@ -65,5 +65,13 @@ assert(not shared.LoadedKa, "KlaeV1 Already Injected")
 local NTime = os.date()
 local LTime = NTime - CurT
 if LTime < 0 then LTime = 0 end
+local sgI = game:GetService("StarterGui")
+shared["Notify"] = function(text)
+  sgI:SetCore("ChatMakeSystemMessage", {
+      ["Text"] = "\n<font color='rgb(255,85,85)'>[KlaeV1]</font> <font color='rgb(200,200,200)'>"..tostring(text).."</font>"
+  })
+end
+shared.Notify('👍 KlaeV1 Loaded In '..tostring(LTime).." Seconds!")
+loadstring(game:HttpGet("https://raw.githubusercontent.com/KL-AE2160/KlaeV1/main/Universal.lua"))()
 
 queueonteleport("loadstring(game:HttpGet(\"https://raw.githubusercontent.com/KL-AE2160/KlaeV1/main/MainScript.lua\"))()")
