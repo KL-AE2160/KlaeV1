@@ -60,7 +60,7 @@ local function check(id)
   return suc and res ~= nil and res ~= "404: Not Found"
 end
 if check(game.PlaceId) then
-  loadstring(game:HttpGet("https://raw.githubusercontent.com/KL-AE2160/KlaeV1/main/Modules/"..game.PlaceID..".lua"))()
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/KL-AE2160/KlaeV1/main/Modules/"..game.PlaceId..".lua"))()
 else 
   --NOnE 
 end
