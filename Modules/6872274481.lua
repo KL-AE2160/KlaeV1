@@ -47,7 +47,7 @@ local IY = LIB("Utility", {
   Name = "InfiniteYield",
   Function = function(cb)
     loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
-    shared.Notify("Infinite Yield Loaded")
+    shared.Notify("Infinite Yield Loading")
   end,
   Default = false,
   HoverText = "Loaded IY in case it failed to load."

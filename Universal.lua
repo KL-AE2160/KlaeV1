@@ -3,9 +3,6 @@ local plrs = game:GetService("Players")
 local plr = plrs.LocalPlayer
 local textChatService = game:GetService("TextChatService")
 --[[
-  VapeV4 - Auto Report Source
-
-----
 POSITION -->
 3  :  OWNER
 2  :  ADMIN
