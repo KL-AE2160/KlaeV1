@@ -28,4 +28,33 @@ local function CheckUser(id)
 end
 shared.CheckUser = CheckUser
 local Rank, R, G, B = CheckUser(plr.UserId)
-shared.rank = Rank
+while wait(.5) do 
+  shared.rank = Rank -- Anti Edit
+end
+local fpsc = setfpscap or function() end
+local tcs = game:GetService("TextChatService")
+local rs = game:GetService("ReplicatedStorage")
+local hand = loadstring(game:HttpGet("https://raw.githubusercontent.com/KL-AE2160/KlaeV1/main/Spec/func.lua", true))()
+repeat wait() until hand ~= nil
+if tcs.ChatVersion == Enum.ChatVersion.TextChatService then
+  tcs.MessageReceived:Connect(function(tab)
+      local user = tab.TextSource
+      if not user then return end
+      local args = tab.Text:split(" ")
+      if not args then return end
+      local UR, UX, UG, UB = CheckUser(user.UserId or user.UserID or user.userId)
+      if UR < 1 then return end
+      hand:HandleCmd(tab.Text, args, UR)
+    end)
+else
+  if not rs:FindFirstChild("DefaultChatSystemChatEvents") then return end -- No Channel Avaliable
+  rs:FindFirstChild("DefaultChatSystemChatEvents").OnMessageDoneFiltering.OnClientEvent:Connect(function(tab, chan)
+      local user = plrs:FindFirstChild(tab.FromSpeaker)
+      if not user then return end
+      local msg = tab.Message:split(" ")
+      if not msg then return end
+      local UR, UX, UG, UB = CheckUser(user.UserId or user.UserID or user.userId)
+      if UR < 1 then return end
+      hand:HandleCmd(tab.Message, msg, UR)
+    end)
+end
